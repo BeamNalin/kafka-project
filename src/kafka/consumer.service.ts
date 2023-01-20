@@ -4,7 +4,7 @@ import { Kafka, Consumer, ConsumerRunConfig } from "kafkajs";
 @Injectable()
 export class ConsumerService implements OnApplicationShutdown {
     private readonly kafka = new Kafka({
-        brokers: ['localhost:9092'],
+        brokers: [`${process.env.KAFKA_BROKER_HOST}:${process.env.KAFKA_BROKER_PORT}`],
     });
     private readonly consumers: Consumer[] = [];
 
